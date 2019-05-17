@@ -6,35 +6,35 @@ public class ShoppingCart {
     private int index;
 
 
-    ShoppingCart() {
+    public ShoppingCart() {
+        ListaProduse=new Produs[5];
+        index=0;
     }
 
-    public ShoppingCart(Produs[] listaProduse) {
-        ListaProduse = listaProduse;
-    }
 
-    Produs[] getListaProduse() {
+    public Produs[] getListaProduse() {
         return ListaProduse;
     }
 
-    void setListaProduse(Produs[] listaProduse) {
+    public void setListaProduse(Produs[] listaProduse) {
         ListaProduse = listaProduse;
     }
 
-    void addProduct(Produs produs) {
+    public void addProduct(Produs produs) {
         if (index < 5) {
             ListaProduse[index] = produs;
             index++;
         }
     }
-    void removeProduct(int pozitieelement){
-        if(index>0){
-            ListaProduse[pozitieelement]= null;
+
+    public void removeProduct(int pozitieelement) {
+        if (index > 0) {
+            ListaProduse[pozitieelement] = null;
             index--;
         }
     }
 
-    int valueIndex() {
+    public int valueIndex() {
         return index;
     }
 }

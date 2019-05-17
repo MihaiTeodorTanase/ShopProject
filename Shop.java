@@ -29,7 +29,6 @@ public class Shop {
     private static void optiuniMenu(ShoppingCart shoppingcart) {
         Scanner sc = new Scanner(System.in);
         String optiune = sc.nextLine().toLowerCase();
-        if (optiune.equals("home") || optiune.equals("produse") || optiune.equals("iesire") || optiune.equals("plata") || optiune.equals("cart") || optiune.equals("add")) {
             switch (optiune) {
                 case "home":
                     mainMenu(shoppingcart);
@@ -49,13 +48,15 @@ public class Shop {
                     System.exit(0);
                 case "cart":
                     cartView(shoppingcart);
+                    System.out.println("Optiuni: Plata / Home / Add / Produse / Iesire  ");
+                    optiuniMenu(shoppingcart);
+                    break;
+                default :
+                    System.out.println("Alegeti una din optiunile de mai jos:");
                     optiuniMenuDefault(shoppingcart);
                     break;
             }
-        } else {
-            System.out.println("Alegeti una din optiunile de mai jos:");
-            optiuniMenuDefault(shoppingcart);
-        }
+
     }
 
     /*_____________________________________________________________________________________________*/
@@ -78,10 +79,9 @@ public class Shop {
     }
 
     private static void caseFullCart(ShoppingCart shoppingcart) {
-        Scanner sc = new Scanner(System.in);
         if (shoppingcart.valueIndex() == 5) {
-            System.out.println("Cosul dvs este plin! Doriti sa platiti ? \nOptiuni: Plata / Home / Produse / Iesire  ");
-            optiuniMenuDefault(shoppingcart);
+            System.out.println("Cosul dvs este plin! Doriti sa platiti ? \nOptiuni: Plata / Cart / Home / Produse / Iesire  ");
+            optiuniMenu(shoppingcart);
         } else {
             optiuniMenuDefault(shoppingcart);
         }
@@ -91,7 +91,6 @@ public class Shop {
         if (shoppingcart.valueIndex() != 5) {
             viewProduseDisponibile();
             Produs[] arr = listaProduseDisponibile();
-            int i = 0;
             Scanner sc = new Scanner(System.in);
             System.out.println("Introduceti numarul produsului dorit:");
             String str = sc.nextLine();
@@ -128,6 +127,7 @@ public class Shop {
                 addCart(shoppingcart);
             }
         }
+        caseFullCart(shoppingcart);
     }
     //_____________________________________________________________________________________________//
     //___________________________________________Produce___________________________________________//
