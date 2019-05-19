@@ -1,7 +1,6 @@
 package codsursa.curs8codsursa;
 
 public class Cashier {
-    private ShoppingCart Total;
 
     public double getTotal(ShoppingCart shoppingcart) {
         Produs[] arr = shoppingcart.getListaProduse();
@@ -12,9 +11,5 @@ public class Cashier {
             }
         }
         return (double) Math.round(sum * 100) / 100;
-    }
-
-    public void setTotal(ShoppingCart total) {
-        Total = total;
     }
 }
