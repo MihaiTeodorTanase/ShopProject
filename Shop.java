@@ -199,14 +199,8 @@ public class Shop {
     }
 
     private static double getTotalPrice(ShoppingCart shoppingcart) {
-        Produs[] arr = shoppingcart.getListaProduse();
-        double sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (shoppingcart.getListaProduse()[i] != null) {
-                sum += shoppingcart.getListaProduse()[i].getPretProdus();
-            }
-        }
-        return (double) Math.round(sum * 100) / 100;
+        Cashier cashier=new Cashier();
+        return cashier.getTotal(shoppingcart);
     }
 }
 
