@@ -1,4 +1,6 @@
-package codsursa.curs8codsursa;
+package codSursa.curs8CodSursa;
+
+import codSursa.curs11CodSursa.QueueFifo;
 
 import java.util.Scanner;
 
@@ -37,7 +39,7 @@ public class Shop {
                     viewProduseDisponibile();
                     optiuniMenuDefault(shoppingcart);
                     break;
-                case "add":
+                case "addNode":
                     addCart(shoppingcart);
                     break;
                 case "plata":
@@ -198,7 +200,7 @@ public class Shop {
 
     }
 
-    private static double getTotalPrice(ShoppingCart shoppingcart) {
+     static double getTotalPrice(ShoppingCart shoppingcart) {
         Cashier cashier=new Cashier();
         return cashier.getTotal(shoppingcart);
     }

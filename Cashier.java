@@ -1,4 +1,4 @@
-package codsursa.curs8codsursa;
+package codSursa.curs8CodSursa;
 
 public class Cashier {
 
